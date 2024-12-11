@@ -17,7 +17,7 @@ urlpatterns = [
         name="index_inverse_header",
     ),
     path("my_account/", views.my_account_view, name="my_account"),
-    path("product/<int:product_id>/", views.product_detail_view, name="product_detail"),
-    path("products/", views.product_view, name="products"),
+    path("product_detail/", views.product_detail_view, name="product_detail"),
+    path("product/", views.product_view, name="product"),
     path("search_results/", views.search_results_view, name="search_results"),
 ]
