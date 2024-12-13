@@ -179,125 +179,27 @@
                 <!-- BEGIN row -->
                 <div class="row row-space-10">
                     <!-- BEGIN col-2 -->
+                    {% for trending_item in trending_items %}
                     <div class="col-md-2 col-sm-4">
                         <!-- BEGIN item -->
                         <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/iphone.png' %}" alt="" />
-                                <div class="discount">15% OFF</div>
+                            <a href="{% url 'product_detail' product_id=trending_item.id %}" class="item-image">
+                                <img src="{{trending_item.image_url}}" alt="" />
+                                <div class="discount">{{trending_item.discount}}% OFF</div>
                             </a>
                             <div class="item-info">
                                 <h4 class="item-title">
-                                    <a href="product_detail.html">iPhone 6s Plus<br />16GB</a>
+                                    <a href="{% url 'product_detail' product_id=trending_item.id %}">{{trending_item.name}}</a>
                                 </h4>
                                 <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
-                                <div class="item-price">$649.00</div>
-                                <div class="item-discount-price">$739.00</div>
+                                <div class="item-price">${{trending_item.price}}</div>
+                                <div class="item-discount-price">${{trending_item.original_price}}</div>
                             </div>
                         </div>
                         <!-- END item -->
                     </div>
-                    <!-- END col-2 -->
-                    <!-- BEGIN col-2 -->
-                    <div class="col-md-2 col-sm-4">
-                        <!-- BEGIN item -->
-                        <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/ipad-pro.png' %}" alt=""  />
-                                <div class="discount">32% OFF</div>
-                            </a>
-                            <div class="item-info">
-                                <h4 class="item-title">
-                                    <a href="product.html">9.7-inch iPad Pro<br />32GB</a>
-                                </h4>
-                                <p class="item-desc">Super. Computer. Now in two sizes.</p>
-                                <div class="item-price">$599.00</div>
-                                <div class="item-discount-price">$799.00</div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                    </div>
-                    <!-- END col-2 -->
-                    <!-- BEGIN col-2 -->
-                    <div class="col-md-2 col-sm-4">
-                        <!-- BEGIN item -->
-                        <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/imac.png' %}" alt="" />
-                                <div class="discount">20% OFF</div>
-                            </a>
-                            <div class="item-info">
-                                <h4 class="item-title">
-                                    <a href="product.html">21.5-inch iMac<br />with Retina Display</a>
-                                </h4>
-                                <p class="item-desc">Retina. Now in colossal and ginormous.</p>
-                                <div class="item-price">$1,099.00</div>
-                                <div class="item-discount-price">$1,299.00</div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                    </div>
-                    <!-- END col-2 -->
-                    <!-- BEGIN col-2 -->
-                    <div class="col-md-2 col-sm-4">
-                        <!-- BEGIN item -->
-                        <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/apple-watch.png' %}" alt="" />
-                                <div class="discount">13% OFF</div>
-                            </a>
-                            <div class="item-info">
-                                <h4 class="item-title">
-                                    <a href="product.html">Apple Watch<br />Stainless steel cases</a>
-                                </h4>
-                                <p class="item-desc">You. At a glance.</p>
-                                <div class="item-price">$599.00</div>
-                                <div class="item-discount-price">$799.00</div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                    </div>
-                    <!-- END col-2 -->
-                    <!-- BEGIN col-2 -->
-                    <div class="col-md-2 col-sm-4">
-                        <!-- BEGIN item -->
-                        <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/macbook-pro.png' %}" alt="" />
-                                <div class="discount">30% OFF</div>
-                            </a>
-                            <div class="item-info">
-                                <h4 class="item-title">
-                                    <a href="product.html">MacBook Pro<br />with Retina Display</a>
-                                </h4>
-                                <p class="item-desc">Stunning Retina Display</p>
-                                <div class="item-price">$1299.00</div>
-                                <div class="item-discount-price">$1499.00</div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                    </div>
-                    <!-- END col-2 -->
-                    <!-- BEGIN col-2 -->
-                    <div class="col-md-2 col-sm-4">
-                        <!-- BEGIN item -->
-                        <div class="item item-thumbnail">
-                            <a href="product_detail.html" class="item-image">
-                                <img src="{% static 'img/apple-tv.png' %}" alt="" />
-                                <div class="discount">40% OFF</div>
-                            </a>
-                            <div class="item-info">
-                                <h4 class="item-title">
-                                    <a href="product.html">Apple Tv<br />32GB</a>
-                                </h4>
-                                <p class="item-desc">The future of television is here.</p>
-                                <div class="item-price">$149.00</div>
-                                <div class="item-discount-price">$249.00</div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                    </div>
-                    <!-- END col-2 -->
+                    {% endfor %}
+                    <!-- END col-2 -->                    
                 </div>
                 <!-- END row -->
             </div>
