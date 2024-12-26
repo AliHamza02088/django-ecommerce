@@ -1,3 +1,4 @@
+{% extends "./base.html" %}
 {% load static %}
 {% block content %}
 <!-- BEGIN #product -->
@@ -49,7 +50,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3"></label>
                                 <div class="col-md-7">
-                                    <button type="submit" class="btn btn-inverse btn-lg">Send Message</button>
+                                    <a href="{% url 'contact_us' %}" class="btn btn-inverse btn-lg">Send Message</button>
                                 </div>
                             </div>
                         </form>

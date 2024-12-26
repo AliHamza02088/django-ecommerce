@@ -1,3 +1,4 @@
+{% extends "./base.html" %}
 {% load static %} 
 {% block content %}
         <!-- BEGIN #checkout-cart -->
@@ -6,7 +7,7 @@
             <div class="container">
                 <!-- BEGIN checkout -->
                 <div class="checkout">
-                    <form action="checkout_info.html" method="POST" name="form_checkout">
+                    <form action="{% url 'checkout_info' %}" method="POST" name="form_checkout">
                         <!-- BEGIN checkout-header -->
                         <div class="checkout-header">
                             <!-- BEGIN row -->
@@ -27,7 +28,7 @@
                                 <!-- BEGIN col-3 -->
                                 <div class="col-md-3 col-sm-3">
                                     <div class="step">
-                                        <a href="checkout_info.html">
+                                        <a href="{% url 'checkout_info' %}">
                                             <div class="number">2</div>
                                             <div class="info">
                                                 <div class="title">Shipping Address</div>

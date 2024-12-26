@@ -44,8 +44,6 @@
                             <div class="product-info-header">
                                 <h1 class="product-title"><span class="label label-success">{{ product.discount }}% OFF</span>{{ product.name }} </h1>
                                 <ul class="product-category">
-                                    <li><a href="">iPhone</a></li>
-                                    <li>/</li>
                                     <li><a href="">mobile phone</a></li>
                                     <li>/</li>
                                     <li><a href="">electronics</a></li>
@@ -90,7 +88,10 @@
                                 <div class="product-price">
                                     <div class="price">${{ product.price }}</div>
                                 </div>
-                                <button class="btn btn-inverse btn-lg" type="submit">ADD TO CART</button>
+                                <form action="{% url 'checkout_cart' %}">
+                                    {% csrf_token %}
+                                   <button class="btn btn-inverse btn-lg" type="submit">ADD TO CART</button>
+                                </form>
                             </div>
                             <!-- END product-purchase-container -->
                         </div>

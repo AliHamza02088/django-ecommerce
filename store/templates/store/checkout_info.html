@@ -1,3 +1,4 @@
+{% extends "./base.html" %}
 {% load static %}
 {% block content %}    
         <!-- BEGIN #checkout-payment -->
@@ -6,7 +7,7 @@
             <div class="container">
                 <!-- BEGIN checkout -->
                 <div class="checkout">
-                    <form action="checkout_payment.html" method="POST" name="form_shipping" class="form-horizontal">
+                    <form action="{% url 'checkout_payment' %}" method="POST" name="form_shipping" class="form-horizontal">
                         <!-- BEGIN checkout-header -->
                         <div class="checkout-header">
                             <!-- BEGIN row -->
@@ -40,7 +41,7 @@
                                 <!-- BEGIN col-3 -->
                                 <div class="col-md-3 col-sm-3">
                                     <div class="step">
-                                        <a href="checkout_payment.html">
+                                        <a href="{% url 'checkout_payment' %}">
                                             <div class="number">3</div>
                                             <div class="info">
                                                 <div class="title">Payment</div>
@@ -153,11 +154,10 @@
                         <!-- END checkout-body -->
                         <!-- BEGIN checkout-footer -->
                         <div class="checkout-footer">
-                            <a href="checkout_cart.html" class="btn btn-white btn-lg pull-left">Back</a>
-                            <button type="submit" class="btn btn-inverse btn-lg p-l-30 p-r-30 m-l-10">Continue</button>
+                            <a href="{% url 'checkout_cart' %}" class="btn btn-white btn-lg pull-left">Back</a>
+                            <button class="btn btn-inverse btn-lg p-l-30 p-r-30 m-l-10">Continue</button>
                         </div>
                         <!-- END checkout-footer -->
-                    </form>
                 </div>
                 <!-- END checkout -->
             </div>

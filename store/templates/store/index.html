@@ -257,109 +257,27 @@
                         <!-- END category-item -->
                         <!-- BEGIN category-item -->
                         <div class="category-item list">
+                            {% for mobile_phone in mobile_phones %}
                             <!-- BEGIN item-row -->
                             <div class="item-row">
                                 <!-- BEGIN item -->
                                 <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/iphone.png' %}" alt="" />
-                                        <div class="discount">15% OFF</div>
+                                    <a href="{% url 'product_detail' product_id=mobile_phone.id %}" class="item-image">
+                                        <img src="{{ mobile_phone.image_url }}" alt="" />
+                                        <div class="discount">{{ mobile_phone.discount }}% OFF</div>
                                     </a>
                                     <div class="item-info">
                                         <h4 class="item-title">
-                                            <a href="product_detail.html">iPhone 6s Plus<br />16GB</a>
+                                            <a href="{% url 'product_detail' product_id=mobile_phone.id %}">{{mobile_phone.name}}<br />16GB</a>
                                         </h4>
                                         <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
-                                        <div class="item-price">$649.00</div>
-                                        <div class="item-discount-price">$739.00</div>
+                                        <div class="item-price">${{ mobile_phone.price }}</div>
+                                        <div class="item-discount-price">${{ mobile_phone.original_price }}</div>
                                     </div>
                                 </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/samsung-note5.png' %}" alt="" />
-                                        <div class="discount">32% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Samsung Galaxy Note 5<br />Black</a>
-                                        </h4>
-                                        <p class="item-desc">Super. Computer. Now in two sizes.</p>
-                                        <div class="item-price">$599.00</div>
-                                        <div class="item-discount-price">$799.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/iphone-se.png' %}" alt="" />
-                                        <div class="discount">20% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">iPhone SE<br />32/64Gb</a>
-                                        </h4>
-                                        <p class="item-desc">A big step for small.</p>
-                                        <div class="item-price">$499.00</div>
-                                        <div class="item-discount-price">$599.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
                             </div>
-                            <!-- END item-row -->
-                            <!-- BEGIN item-row -->
-                            <div class="item-row">
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/zenfone2.png' %}" alt="" />
-                                        <div class="discount">15% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
-                                        </h4>
-                                        <p class="item-desc">See What Others Can’t See</p>
-                                        <div class="item-price">$399.00</div>
-                                        <div class="item-discount-price">$453.00</div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                                 <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/xperia-z.png' %}" alt="" />
-                                        <div class="discount">32% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Sony Xperia Z<br />Black Color</a>
-                                        </h4>
-                                        <p class="item-desc">For unexpectedly beautiful moments</p>
-                                        <div class="item-price">$599.00</div>
-                                        <div class="item-discount-price">$799.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/lumia-532.png' %}" alt="" />
-                                        <div class="discount">20% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Microsoft Lumia 531<br />Smartphone Orange</a>
-                                        </h4>
-                                        <p class="item-desc">1 Year Local Manufacturer Warranty</p>
-                                        <div class="item-price">$99.00</div>
-                                        <div class="item-discount-price">$199.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                            </div>
                             <!-- END item-row -->
                         </div>
                         <!-- END category-item -->
@@ -415,108 +333,27 @@
                         </a>
                         <!-- END category-item -->
                         <!-- BEGIN category-item -->
+
                         <div class="category-item list">
                             <!-- BEGIN item-row -->
                             <div class="item-row">
+                                {% for tablet in tablets %}
                                 <!-- BEGIN item -->
                                 <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/ipad-pro.png' %}" alt="" />
-                                        <div class="discount">15% OFF</div>
+                                    <a href="{% url 'product_detail' product_id=tablet.id %}" class="item-image">
+                                        <img src="{{ tablet.image_url }}" alt="" />
+                                        <div class="discount">{{ tablet.discount }}% OFF</div>
                                     </a>
                                     <div class="item-info">
                                         <h4 class="item-title">
-                                            <a href="product_detail.html">9.7-inch iPad Pro<br />32GB</a>
+                                            <a href="{% url 'product_detail' product_id=tablet.id %}">{{ tablet.name }}<br />16GB</a>
                                         </h4>
                                         <p class="item-desc">3D Touch. 12MP photos. 4K video.</p>
-                                        <div class="item-price">$649.00</div>
-                                        <div class="item-discount-price">$739.00</div>
+                                        <div class="item-price">${{ tablet.price }}</div>
+                                        <div class="item-discount-price">${{ tablet.original_price }}</div>
                                     </div>
                                 </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/galaxy-tab2.png' %}" alt="" />
-                                        <div class="discount">32% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Samsung Galaxy Tab S2<br />Black</a>
-                                        </h4>
-                                        <p class="item-desc">A Brilliant Screen That Adjusts to You</p>
-                                        <div class="item-price">$399.99</div>
-                                        <div class="item-discount-price">$499.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/galaxy-taba.png' %}" alt="" />
-                                        <div class="discount">20% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Samsung Galaxy Tab A<br />9.7" 16Gb(Wi-Fi)</a>
-                                        </h4>
-                                        <p class="item-desc">Keep All Your Samsung Devices In Sync</p>
-                                        <div class="item-price">$349.99</div>
-                                        <div class="item-discount-price">$399.99</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                            </div>
-                            <!-- END item-row -->
-                            <!-- BEGIN item-row -->
-                            <div class="item-row">
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/hp-spectrex2.png' %}" alt="" />
-                                        <div class="discount">15% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product_detail.html">HP Spectre x2<br />‏12-a011nr</a>
-                                        </h4>
-                                        <p class="item-desc">Our thinnest detachable separates from all others.</p>
-                                        <div class="item-price">$799.99</div>
-                                        <div class="item-discount-price">$850.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/xperia-z2.png' %}" alt="" />
-                                        <div class="discount">32% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">Sony Xperia Z2 Tablet<br />Black Color</a>
-                                        </h4>
-                                        <p class="item-desc">For unexpectedly beautiful moments</p>
-                                        <div class="item-price">$199.00</div>
-                                        <div class="item-discount-price">$259.00</div>
-                                    </div>
-                                </div>
-                                <!-- END item -->
-                                <!-- BEGIN item -->
-                                <div class="item item-thumbnail">
-                                    <a href="product_detail.html" class="item-image">
-                                        <img src="{% static 'img/ipad-air.png' %}" alt="" />
-                                        <div class="discount">20% OFF</div>
-                                    </a>
-                                    <div class="item-info">
-                                        <h4 class="item-title">
-                                            <a href="product.html">iPad Air 2<br />32/64Gb</a>
-                                        </h4>
-                                        <p class="item-desc">Light. Heavyweight.</p>
-                                        <div class="item-price">$399.00</div>
-                                        <div class="item-discount-price">$459.00</div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                                 <!-- END item -->
                             </div>
                             <!-- END item-row -->
@@ -530,59 +367,7 @@
             <!-- END container -->
         </div>
         <!-- END #tablet-list -->
-    
-        <!-- BEGIN #policy -->
-        <div id="policy" class="section-container p-t-30 p-b-30">
-            <!-- BEGIN container -->
-            <div class="container">
-                <!-- BEGIN row -->
-                <div class="row">
-                    <!-- BEGIN col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- BEGIN policy -->
-                        <div class="policy">
-                            <div class="policy-icon"><i class="fa fa-truck"></i></div>
-                            <div class="policy-info">
-                                <h4>Free Delivery Over $100</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <!-- END policy -->
-                    </div>
-                    <!-- END col-4 -->
-                    <!-- BEGIN col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- BEGIN policy -->
-                        <div class="policy">
-                            <div class="policy-icon"><i class="fa fa-shield"></i></div>
-                            <div class="policy-info">
-                                <h4>1 Year Warranty For Phones</h4>
-                                <p>Cras laoreet urna id dui malesuada gravida. <br />Duis a lobortis dui.</p>
-                            </div>
-                        </div>
-                        <!-- END policy -->
-                    </div>
-                    <!-- END col-4 -->
-                    <!-- BEGIN col-4 -->
-                    <div class="col-md-4 col-sm-4">
-                        <!-- BEGIN policy -->
-                        <div class="policy">
-                            <div class="policy-icon"><i class="fa fa-user-md"></i></div>
-                            <div class="policy-info">
-                                <h4>6 Month Warranty For Accessories</h4>
-                                <p>Fusce ut euismod orci. Morbi auctor, sapien non eleifend iaculis.</p>
-                            </div>
-                        </div>
-                        <!-- END policy -->
-                    </div>
-                    <!-- END col-4 -->
-                </div>
-                <!-- END row -->
-            </div>
-            <!-- END container -->
-        </div>
-        <!-- END #policy -->
-    
+        
         <!-- BEGIN #subscribe -->
         <div id="subscribe" class="section-container bg-silver p-t-30 p-b-30">
             <!-- BEGIN container -->
@@ -635,39 +420,5 @@
             </div>
             <!-- END container -->
         </div>
-        <!-- END #subscribe -->
-    
-    <!-- begin theme-panel -->
-    <div class="theme-panel">
-        <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-        <div class="theme-panel-content">
-            <ul class="theme-list clearfix">
-                <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-            </ul>
-        </div>
-    </div>
-    <!-- end theme-panel -->
-	
-	<!-- ================== BEGIN BASE JS ================== -->
-	<script src="{% static 'plugins/jquery/jquery-1.9.1.min.js' %}"></script>
-	<script src="{% static 'plugins/jquery/jquery-migrate-1.1.0.min.js' %}"></script>
-	<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
-	<!--[if lt IE 9]>
-		<script src="crossbrowserjs/html5shiv.js"></script>
-		<script src="crossbrowserjs/respond.min.js"></script>
-		<script src="crossbrowserjs/excanvas.min.js"></script>
-	<![endif]-->
-	<script src="{% static 'plugins/jquery-cookie/jquery.cookie.js' %}"></script>
-	<script src="{% static 'js/apps.min.js' %}"></script>
-	<!-- ================== END BASE JS ================== -->
-	
-	<script>
-	    $(document).ready(function() {
-	        App.init();
-	    });
-	</script>
+    <!-- END #subscribe -->
     {% endblock content %}
