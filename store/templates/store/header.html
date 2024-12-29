@@ -231,10 +231,12 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="my_account.html">
+                        <a href="{% url "my_account" %}">
                             <img src="{% static 'img/user-1.jpg' %}" class="user-img" alt="" />
-                            <span class="hidden-md hidden-sm hidden-xs"><a href="{% url 'logout' %}"></span>
                         </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login' %}">login/register</a>
                     </li>
                 </ul>
             </div>
