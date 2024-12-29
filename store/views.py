@@ -50,7 +50,8 @@ def product_detail_view(request, product_id):
 
 
 def product_view(request):
-    return render(request, "store/product.html")
+    all_products = Product.objects.all()
+    return render(request, "store/product.html" , {"all_products":all_products})
 
 
 def search_results_view(request):

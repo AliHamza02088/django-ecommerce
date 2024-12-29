@@ -1,8 +1,74 @@
 {% extends "./base.html" %}
 {% load static %}
 {% block content %}
-<!-- BEGIN checkout-body -->
-
+        <!-- BEGIN #checkout-payment -->
+        <div class="section-container" id="checkout-payment">
+            <!-- BEGIN container -->
+            <div class="container">
+                <!-- BEGIN checkout -->
+                <div class="checkout">
+                    <form action="{% url 'checkout_complete' %}" method="POST" name="form_payment" class="form-horizontal">
+                        <!-- BEGIN checkout-header -->
+                        <div class="checkout-header">
+                            <!-- BEGIN row -->
+                            <div class="row">
+                                <!-- BEGIN col-3 -->
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="step">
+                                        <a href="{% url 'checkout_cart' %}">
+                                            <div class="number">1</div>
+                                            <div class="info">
+                                                <div class="title">Delivery Options</div>
+                                                <div class="desc">Lorem ipsum dolor sit amet.</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- END col-3 -->
+                                <!-- BEGIN col-3 -->
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="step">
+                                        <a href="{% url 'checkout_info' %}">
+                                            <div class="number">2</div>
+                                            <div class="info">
+                                                <div class="title">Shipping Address</div>
+                                                <div class="desc">Vivamus eleifend euismod.</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- END col-3 -->
+                                <!-- BEGIN col-3 -->
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="step active">
+                                        <a href="#">
+                                            <div class="number">3</div>
+                                            <div class="info">
+                                                <div class="title">Payment</div>
+                                                <div class="desc">Aenean ut pretium ipsum. </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- END col-3 -->
+                                <!-- BEGIN col-3 -->
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="step">
+                                        <a href="{% url 'checkout_complete' %}">
+                                            <div class="number">4</div>
+                                            <div class="info">
+                                                <div class="title">Complete Payment</div>
+                                                <div class="desc">Curabitur interdum libero.</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- END col-3 -->
+                            </div>
+                            <!-- END row -->
+                        </div>
+                        <!-- END checkout-header -->
+                        <!-- BEGIN checkout-body -->
                         <div class="checkout-body">
 							<h4 class="checkout-title">Choose a payment method</h4>
                             <div class="form-group">
@@ -58,7 +124,16 @@
                             </div>
                         </div>
                         <!-- END checkout-body -->
-               
+                        <!-- BEGIN checkout-footer -->
+                        <div class="checkout-footer">
+                            <a href="{% url 'checkout_info' %}" class="btn btn-white btn-lg pull-left">Back</a>
+                            <button type="submit" class="btn btn-inverse btn-lg p-l-30 p-r-30 m-l-10">Proceed</button>
+                        </div>
+                        <!-- END checkout-footer -->
+                    </form>
+                </div>
+                <!-- END checkout -->
+                
                 <h4 class="checkout-title m-t-30 m-b-15">Payment Frequently Asked Questions</h4>
                 <!-- BEGIN checkout-question-list -->
                 <div class="row checkout-question-list" id="checkout-faq">
@@ -122,5 +197,8 @@
                     <!-- END col-6 -->
                 </div>
                 <!-- END checkout-question-list -->
+            </div>
+            <!-- END container -->
+        </div>
         <!-- END #checkout-payment -->
 {% endblock content %}

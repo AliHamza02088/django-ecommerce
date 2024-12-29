@@ -1,7 +1,17 @@
 from django.db import models
 
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    DEVICE_CHOICES = [
+        ("Mobile", "Mobile"),
+        ("Tablet", "Tablet"),
+        ("Laptop",'Laptop'),
+        ("Watch","Watch"),
+        ("Gadget","Gadget"),
+        ("Speaker","Speaker"),
+        ("Accessories","Accessories"),
+        ("Computer","Computer"),
+    ]
+    name = models.CharField(max_length=255, choices=DEVICE_CHOICES)
     
     def __str__(self):
         return self.name
