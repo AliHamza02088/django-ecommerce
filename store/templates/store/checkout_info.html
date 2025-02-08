@@ -2,12 +2,12 @@
 {% load static %}
 {% block content %}    
         <!-- BEGIN #checkout-payment -->
+    <form method="POST" name="form_payment" class="form-horizontal">
         <div class="section-container" id="checkout-info">
             <!-- BEGIN container -->
             <div class="container">
                 <!-- BEGIN checkout -->
                 <div class="checkout">
-                    <form action="{% url 'checkout_payment' %}" method="POST" name="form_shipping" class="form-horizontal">
                         <!-- BEGIN checkout-header -->
                         <div class="checkout-header">
                             <!-- BEGIN row -->
@@ -71,11 +71,13 @@
                         <!-- BEGIN checkout-body -->
                         <div class="checkout-body">
                             <div class="form-group">
+                                
+                                <form method="POST">
                                 <label class="control-label col-md-4">
                                     First Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="first_name" value="" placeholder="" />
+                                    <input type="text" class="form-control" name="first_name" id="first_name" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -83,7 +85,7 @@
                                     Last Name <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="last_name" value="" placeholder="" />
+                                    <input type="text" class="form-control" name="last_name"  id="last_name" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -91,7 +93,7 @@
                                     Company Name (optional)<span class="text-danger">&nbsp;</span>
                                 </label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="company_name" value="" placeholder="" />
+                                    <input type="text" class="form-control" name="company"  id="company" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -99,15 +101,15 @@
                                     Area Code <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="area_code" value="" placeholder="" />
+                                    <input type="number" class="form-control" name="area_code"  id="area_code" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-4">
-                                    Primary Phone <span class="text-danger">*</span>
+                                    Phone number<span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="primary_phone" value="" placeholder="" />
+                                    <input type="number" class="form-control" name="phone_number" id="phone_number" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -115,8 +117,7 @@
                                     Street Address <span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control m-b-10" name="address_1" value="" placeholder="" />
-                                    <input type="text" class="form-control" name="address_2" value="" placeholder="" />
+                                    <input type="text" class="form-control m-b-10" name="address" id="address" value="" placeholder="" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -124,7 +125,7 @@
                                     ZIP Code<span class="text-danger">*</span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="zip_code" value="" placeholder="" />
+                                    <input type="number" class="form-control" name="zip_code" id="zip_code" value="" placeholder="" />
                                     <p class="help-block m-b-0">Enter ZIP for City and State ZIP Code</p>
                                 </div>
                             </div>
@@ -134,7 +135,7 @@
                                 </label>
                                 <div class="col-md-4">
                                     <label class="f-w-500">
-                                        <input type="checkbox" name="business_address" value="1" />
+                                        <input type="checkbox" name="business" id="business" value="1" />
                                         This is a business address
                                         <a href="#" class="m-l-5 text-muted" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="This helps us choose the best shipping method for you. Business shipments are normally delivered on weekdays by 5:00 p.m. local time. Residential shipments are normally delivered Monday - Saturday by 8:00 p.m. local time.">
                                             <i class="fa fa-question-circle"></i>
@@ -150,19 +151,20 @@
                                 <li>Delivery estimates below include item preparation and shipping time</li>
                                 <li>We do not ship directly to APO/FPO addresses.</li>
                             </ul>
-                        </div>
+                            </div>
                         <!-- END checkout-body -->
                         <!-- BEGIN checkout-footer -->
-                        <div class="checkout-footer">
-                            <a href="{% url 'checkout_cart' %}" class="btn btn-white btn-lg pull-left">Back</a>
-                            <button class="btn btn-inverse btn-lg p-l-30 p-r-30 m-l-10">Continue</button>
+                            <div class="checkout-footer">
+                                <a href="{% url 'checkout_cart' %}" class="btn btn-white btn-lg pull-left">Back</a>
+                                <button type="submit" class="btn btn-inverse btn-lg p-l-30 p-r-30 m-l-10">Continue</button>
+                            </div>
+                            <!-- END checkout-footer -->
                         </div>
-                        <!-- END checkout-footer -->
+                        <!-- END checkout -->
+                    </div>
+                    <!-- END container -->
                 </div>
-                <!-- END checkout -->
-            </div>
-            <!-- END container -->
-        </div>
+    </form>
         <!-- END #checkout-info -->
 {% endblock content %}  
 

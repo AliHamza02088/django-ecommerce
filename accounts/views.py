@@ -29,7 +29,7 @@ def LoginPage(request):
         user = authenticate(username = username , password = pass1)
         if user is not None:
             login(request , user)
-            return redirect('/')
+            return redirect('home/')
         else:
             return HttpResponse("username or password is incorrect")
     return render (request , 'login.html')

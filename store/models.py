@@ -1,4 +1,6 @@
+from typing import Required
 from django.db import models
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     DEVICE_CHOICES = [
@@ -42,7 +44,7 @@ class Product(models.Model):
 class Features(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    product_id = models.ForeignKey(Product , on_delete=models.CASCADE , related_name="main_feature")
+
     
     def __str__(self):
         return self.name    
@@ -52,3 +54,29 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+class cart(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    pro_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image_url = models.ForeignKey(ProductImage, on_delete=models.CASCADE , null=True , blank=True)
+    quantity = models.PositiveIntegerField(default=1)
+    total = models.IntegerField(default=0)
+    grand_total = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return f"{self.pro_id.name}, {self.quantity}"
+
+    
+
+class Address(models.Model):
+    first_name = models.CharField(max_length=255 , null=True , blank=True)
+    last_name = models.CharField(max_length=255 , null=True , blank=True )
+    address = models.CharField(max_length=255)
+    area_code = models.IntegerField()
+    phone_number = models.IntegerField()
+    zip_code = models.IntegerField()
+    company = models.CharField(max_length=25 , null=True , blank=True)
+    business = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
